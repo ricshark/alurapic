@@ -1,17 +1,11 @@
-<ap-photos [photos]="photos">
-    <div class="text-center mt-3 mb-3">
-        <form>
-            <input
-                class="rounded"
-                type="search"
-                placeholder="search..."
-                autofocus>
-        </form>
-    </div>
-    <div>
-        
-    </div>
-</ap-photos>
+ <ap-search (onTyping)="filter = $event" [value]="filter"></ap-search> 
+
+<ap-photos [photos]="photos | filterByDescription: filter"> </ap-photos>
+
+<ap-load-button 
+(click)="load()"
+[hasMore]="hasMore">
+</ap-load-button>
 
 
 
